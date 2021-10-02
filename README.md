@@ -1,2 +1,2 @@
-# python_au
-python_au
+# python-au
+python-au
