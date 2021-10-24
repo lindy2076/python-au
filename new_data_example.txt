@@ -1,0 +1,27 @@
+String Compression
+https://leetcode.com/problems/string-compression/
+def compress(chars):
+    prevsymb = chars[0]
+    slen = 1; gk = 0
+    for symb in chars[1:]:
+        if symb == prevsymb:
+            slen+=1
+        else:
+            chars[gk] = prevsymb
+            gk += 1
+            if slen != 1:
+                for digit in str(slen):
+                    chars[gk] = digit
+                    gk += 1
+            slen = 1
+        prevsymb = symb
+    chars[gk] = prevsymb
+    gk += 1
+    if slen!= 1:
+        for digit in str(slen):
+            chars[gk] = digit
+            gk += 1
+    for i in range(len(chars) - gk ):
+        chars.pop(-1)
+    
+    return gk + 1
