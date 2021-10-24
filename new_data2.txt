@@ -1,0 +1,5 @@
+Problem Name2
+https://leetcode.com/problems/problem-name2/
+def problem2(a):
+    print("problem2")
+    return 1
