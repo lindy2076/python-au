@@ -1,0 +1,11 @@
+Reverse Linked List
+https://leetcode.com/problems/reverse-linked-list/
+def reverse_linked_list(head):
+    elem = head
+    prev_elem = None
+    while elem is not None:
+        next_elem = elem.next
+        elem.next = prev_elem
+        prev_elem = elem
+        elem = next_elem
+    return prev_elem
