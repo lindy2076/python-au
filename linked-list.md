@@ -1,41 +1,28 @@
 # Linked List
 
-+ [Reverse Linked List](#reverse-linked-list)
++ [Merge Two Sorted Lists](#merge-two-sorted-lists)
 
-## Reverse Linked List
+## Merge Two Sorted Lists
+
+https://leetcode.com/problems/merge-two-sorted-lists/
 
 <details><summary>Test cases</summary><blockquote>
 
 ```python
 import unittest
-import reversed_linked_list as rll
+import merge_two_linlists as mtl
 
 
-class TestReversedLinkedList(unittest.TestCase):
+class MergeTwoLinkedListsTest(unittest.TestCase):
     def setUp(self):
-        self.solution = rll.Solution()
-
-    def test_reverse(self):
-        expected = self.get_linked_list_values(self.build_linked_list([5, 4, 3, 2, 1]))
-        actual = self.get_linked_list_values(self.solution.reverseList(self.create_linked_list(5)))
-        self.assertEqual(expected, actual)  # add assertion here
-
-    def test_reverse_empty(self):
-        expected = None
-        actual = self.solution.reverseList(None)
-        self.assertEqual(expected, actual)  # add assertion here
-
-    def create_linked_list(self, n=10):
-        prev_link = None
-        for i in range(n, 0, -1):
-            elem = rll.ListNode(i, prev_link)
-            prev_link = elem
-        return elem
+        self.solution = mtl.Solution()
 
     def build_linked_list(self, source):
+        if source is None or not source:
+            return None
         prev_link = None
         for i in source[::-1]:
-            elem = rll.ListNode(i, prev_link)
+            elem = mtl.ListNode(i, prev_link)
             prev_link = elem
         return elem
 
@@ -47,23 +34,55 @@ class TestReversedLinkedList(unittest.TestCase):
             curr = curr.next
         return result
 
+    def test_merging(self):
+        list1 = [1, 3, 4]
+        list2 = [1, 2, 5, 6]
+        linked_list1 = self.build_linked_list(list1)
+        linked_list2 = self.build_linked_list(list2)
+
+        result = self.solution.mergeTwoLists(linked_list1, linked_list2)
+        expected = self.build_linked_list([1, 1, 2, 3, 4, 5, 6])
+        self.assertEqual(self.get_linked_list_values(expected), self.get_linked_list_values(result))
+
+    def test_merge_empty(self):
+        list1 = []
+        list2 = [1, 2]
+        linked_list1 = self.build_linked_list(list1)
+        linked_list2 = self.build_linked_list(list2)
+
+        result = self.solution.mergeTwoLists(linked_list1, linked_list2)
+        expected = self.build_linked_list([1, 2])
+        self.assertEqual(self.get_linked_list_values(expected), self.get_linked_list_values(result))
+
 
 if __name__ == '__main__':
     unittest.main()
+
 ```
 
 </blockquote></details>
 
-
-
 ```python
-def reverse_linked_list(head):
-    elem = head
-    prev_elem = None
-    while elem is not None:
-        next_elem = elem.next
-        elem.next = prev_elem
-        prev_elem = elem
-        elem = next_elem
-    return prev_elem
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def mergeTwoLists(self, list1, list2):
+        result = ListNode()
+        head = result
+        while (list1 is not None) and (list2 is not None):
+            if list1.val <= list2.val:
+                result.next, list1 = list1, list1.next
+            else:
+                result.next, list2 = list2, list2.next
+            result = result.next
+        if list1 is not None:
+            result.next = list1
+        if list2 is not None:
+            result.next = list2
+        return head.next
 ```
