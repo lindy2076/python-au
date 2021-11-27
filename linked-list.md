@@ -79,5 +79,4 @@ class Solution:
             else:
                 elem.next = None
         return head
-
 ```
