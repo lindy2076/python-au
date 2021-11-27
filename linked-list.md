@@ -1,55 +1,61 @@
 # Linked List
 
-+ [Reverse Linked List](#reverse-linked-list)
++ [Palindrome Linked List](#palindrome-linked-list)
 
-## Reverse Linked List
+## Palindrome Linked List
+
+https://leetcode.com/problems/palindrome-linked-list/
 
 <details><summary>Test cases</summary><blockquote>
 
 ```python
 import unittest
-import reversed_linked_list as rll
+import palindrome_linlist as pll
 
 
-class TestReversedLinkedList(unittest.TestCase):
-    def setUp(self):
-        self.solution = rll.Solution()
-
-    def test_reverse(self):
-        expected = self.get_linked_list_values(self.build_linked_list([5, 4, 3, 2, 1]))
-        actual = self.get_linked_list_values(self.solution.reverseList(self.create_linked_list(5)))
-        self.assertEqual(expected, actual)  # add assertion here
-
-    def test_reverse_empty(self):
-        expected = None
-        actual = self.solution.reverseList(None)
-        self.assertEqual(expected, actual)  # add assertion here
-
-    def create_linked_list(self, n=10):
-        prev_link = None
-        for i in range(n, 0, -1):
-            elem = rll.ListNode(i, prev_link)
-            prev_link = elem
-        return elem
+class PalindromeTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        self.solution = pll.Solution()
 
     def build_linked_list(self, source):
         prev_link = None
         for i in source[::-1]:
-            elem = rll.ListNode(i, prev_link)
+            elem = pll.ListNode(i, prev_link)
             prev_link = elem
         return elem
 
-    def get_linked_list_values(self, head):
-        result = []
-        curr = head
-        while curr is not None:
-            result.append(curr.val)
-            curr = curr.next
-        return result
+    def test_palindrome_even_list(self):
+        test_list = [1, 2, 2, 1]
+        test_linked_list = self.build_linked_list(test_list)
+        expected = True
+        result = self.solution.isPalindrome(test_linked_list)
+        self.assertEqual(expected, result)
+
+    def test_palindrome_odd_list(self):
+        test_list2 = [1, 2, 3, 2, 1]
+        test_linked_list2 = self.build_linked_list(test_list2)
+        expected2 = True
+        result2 = self.solution.isPalindrome(test_linked_list2)
+        self.assertEqual(expected2, result2)
+
+    def test_palindrome_list_of_one(self):
+        test_list3 = [1]
+        test_linked_list3 = self.build_linked_list(test_list3)
+        expected3 = True
+        result3 = self.solution.isPalindrome(test_linked_list3)
+        self.assertEqual(expected3, result3)
+
+    def test_palindrome_random_list(self):
+        test_list4 = [1, 2, 1, 1]
+        test_linked_list4 = self.build_linked_list(test_list4)
+        expected4 = False
+        result4 = self.solution.isPalindrome(test_linked_list4)
+        self.assertEqual(expected4, result4)
 
 
 if __name__ == '__main__':
     unittest.main()
+
 ```
 
 </blockquote></details>
@@ -57,13 +63,21 @@ if __name__ == '__main__':
 
 
 ```python
-def reverse_linked_list(head):
-    elem = head
-    prev_elem = None
-    while elem is not None:
-        next_elem = elem.next
-        elem.next = prev_elem
-        prev_elem = elem
-        elem = next_elem
-    return prev_elem
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution:
+    def isPalindrome(self, head):
+        list_len = 0
+        elem = head
+        list_values = []
+        while elem is not None:
+            list_values.append(elem.val)
+            list_len += 1
+            elem = elem.next
+        first_part, second_part = list_values[:(list_len + 1) // 2], list_values[list_len // 2:]
+        return second_part == first_part[::-1]
 ```
