@@ -19,8 +19,8 @@ class GameBoard():
 
     def change_cell(self, id):
         # print(self.table[id%3][id//3])
-        if self.table[id % 3][id // 3] == '-1':
-            self.table[id % 3][id // 3] = "X" if self.turn == 0 else "O"
+        if self.table[id // 3][id % 3] == '-1':
+            self.table[id // 3][id % 3] = "X" if self.turn == 0 else "O"
             self.turn = 1 if self.turn == 0 else 0
             return 1
         # print(self.turn)
@@ -31,6 +31,8 @@ class GameBoard():
             if len(set(line)) == 1 and set(line) != set(["-1"]):
                 print("1", set(line), set('-1'))
                 return True
+            else:
+                print(set(line))
 
         column = set()
         for i in range(3):
@@ -77,7 +79,7 @@ class MainWindow(QMainWindow):
     def change_box(self, id):
         res = self.gb.change_cell(id)
         if res:
-            self.buttons[id].setText(str(self.gb.table[id%3][id//3]))
+            self.buttons[id].setText(str(self.gb.table[id//3][id%3]))
             if self.gb.check_victory() == True:
                 won = "X" if self.gb.turn else "O"
                 v = VictoryWindow(won)
@@ -88,6 +90,7 @@ class MainWindow(QMainWindow):
                 print("thinking")
         else:
             print("wtf")
+        
 
 
 class VictoryWindow(QMessageBox):
