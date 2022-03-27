@@ -1,9 +1,7 @@
-import os
 import sys
-from time import sleep
 
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 
 class GameBoard():
@@ -18,12 +16,10 @@ class GameBoard():
         return res
 
     def change_cell(self, id):
-        # print(self.table[id%3][id//3])
         if self.table[id // 3][id % 3] == '-1':
             self.table[id // 3][id % 3] = "X" if self.turn == 0 else "O"
             self.turn = 1 if self.turn == 0 else 0
             return 1
-        # print(self.turn)
         return 0
 
     def check_victory(self):
@@ -33,7 +29,6 @@ class GameBoard():
                 return True
             else:
                 print(set(line))
-
         column = set()
         for i in range(3):
             for j in range(3):
@@ -41,23 +36,21 @@ class GameBoard():
             if len(column) == 1 and column != set(["-1"]):
                 print("2")
                 return True
-
+            else:
+                column = set()
         column = set()
         for i in range(3):
             column.add(self.table[i][i])
         if len(column) == 1 and column != set(["-1"]):
             print("3")
             return True
-        
         column = set()
         for i in range(3):
             column.add(self.table[i][2-i])
         if len(column) == 1 and column != set(["-1"]):
             print("4")
             return True
-        
         return False    
-
 
 
 class MainWindow(QMainWindow):
@@ -74,7 +67,6 @@ class MainWindow(QMainWindow):
             new_button.setFixedSize(120, 120)
             new_button.clicked.connect(lambda checked, i=i: self.change_box(i))
             self.buttons.append(new_button)
-        
 
     def change_box(self, id):
         res = self.gb.change_cell(id)
@@ -90,7 +82,6 @@ class MainWindow(QMainWindow):
                 print("thinking")
         else:
             print("wtf")
-        
 
 
 class VictoryWindow(QMessageBox):
