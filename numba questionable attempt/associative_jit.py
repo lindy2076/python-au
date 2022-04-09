@@ -25,8 +25,7 @@ def associative_test(table, n: int) -> bool:
     return 1
 
 
-def associative_test_optimized(table: list[list], n: int) -> bool:
-    
+def associative_test_optimized(table: list[list], n: int) -> bool:  # FIXME
     return 1
 
 
@@ -43,7 +42,6 @@ def count(k):
 
 def main():
     k = int(input())
-
     print(count(k))
 
 
