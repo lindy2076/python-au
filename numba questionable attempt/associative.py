@@ -1,22 +1,14 @@
-def to_system(num: int, base: int) -> str:  # генерация строки таблицы
-    if num == 0:
-        res = '0'
-    else:
-        res = str(num % base)
-        num //= base
-    while num > 0:
-        res = str(num % base) + '.' + res
-        num //= base
-    while len(res.split('.')) < base**2:
-        res = str(0) + '.' + res
-    return res
-
-
 def generate_table(num: int, size: int) -> list[list]:  # генерация самой таблицы из строки
-    string = to_system(num, size)
-    new_table = [[0 for _ in range(size)] for _ in range(size)]
-    for index, elem in enumerate(string.split('.')):
-        new_table[index // size][index % size] = int(elem)
+    new_table = [[0] * size for _ in range(size)]
+    c, r = size - 1, size - 1
+    while num:
+        new_table[r][c] = num % size
+        if not c:
+            c = size
+            r -= 1
+        c -= 1
+        num //= size
+    # print(new_table)
     return new_table
 
 
@@ -29,12 +21,17 @@ def associative_test(table: list[list], n: int) -> bool:
     return 1
 
 
+def associative_test_optimized(table: list[list], n: int) -> bool:
+    
+    return 1
+
+
 def count(k):
     c = 0
     for i in range(k**(k*k)):
-        c += 1 if associative_test(generate_table(i, k), k) else 0
-        # if (i % 100000 == 0):
-        #     print(".")
+        c += associative_test(generate_table(i, k), k)
+        # if (i % 100000 == 0 and i != 0):
+        #     break
     return c
 
 
