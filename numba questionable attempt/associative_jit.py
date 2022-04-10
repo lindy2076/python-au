@@ -25,10 +25,6 @@ def associative_test(table, n: int) -> bool:
     return 1
 
 
-def associative_test_optimized(table: list[list], n: int) -> bool:  # FIXME
-    return 1
-
-
 @jit(nopython=True)
 def count(k):
     c = 0
