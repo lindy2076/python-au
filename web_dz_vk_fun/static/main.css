@@ -1,0 +1,658 @@
+@font-face {
+    font-family: CormorantBold;
+    src: url("../Fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: CormorantRegular;
+    src: url("../Fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: RubikMonoOne;
+    src: url("../Fonts/Rubik_Mono_One/RubikMonoOne-Regular.ttf") format("truetype");
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.transition {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+a:visited {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.body {
+    padding-top: 200px;
+    padding-bottom: 800px;
+}
+
+.header {
+    margin: 0;
+    top: 0;
+    border: 1px solid black;
+    background-color: #1C577C;
+    padding-left: 30px;
+    padding-right: -100px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: fixed;
+    width: 100%;
+    height: 5vh;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.title {
+    color: white;
+    font-family: "RubikMonoOne", sans-serif;
+    font-size: 30px;
+    display: inline-block;
+}
+
+.title:hover {
+    color: coral;
+}
+
+.about {
+    color: white;
+    display: inline-block;
+    font-family: "CormorantRegular";
+    font-size: 25px;
+}
+
+.footer {
+    margin-top: 150px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    bottom: 0px;
+    right: 0px;
+    width: 21em;
+    text-align: right;
+    float: right;
+    border: 5px solid black;
+    border-right: 0;
+    border-bottom: 0;
+    background-color: #8EE134;
+}
+
+.author {
+    text-align: center;
+    font-family: "RubikMonoOne", serif;
+    font-size: 16px;
+    color: #1C577C;
+    display: inline-block;
+}
+
+.link {
+    font-family: "RubikMonoOne", sans-serif;
+    text-decoration: overline;
+    color: black;
+    font-size: 16px;
+    display: inline-block;
+    padding-right: 30px;
+    padding-left: 10px;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.link:hover {
+    color: #FF835B;
+}
+
+.central_content {
+    text-align: center;
+    font-size: 0;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-left: calc((10vw - 40px) / 2);
+    padding: 0;
+    height: 30vw;   
+    margin-top: 200px;
+    border: 10px solid black;
+    border-color: transparent black transparent black
+}
+
+.content_text {
+    text-align: center;
+    font-size: 30px;
+    padding: 0;
+}
+
+.content_1 {
+    text-align: center;
+    font-family: "RubikMonoOne";
+    color: black;
+    display: inline-block;
+    background-color: #FB9982;
+    width: 30vw;
+    height: fit-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0;
+    
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.content_1:hover {
+    background-color: #FB7F62;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.content_2 {
+    font-size: 30px;
+    font-family: "RubikMonoOne";
+    color: black;
+    display: inline-block;
+    background-color: #A8ED5D;
+    width: 30vw;
+    height: fit-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 10px solid black;
+    border-color: transparent black transparent black;
+    
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.content_2:hover {
+    background-color: #91ce4f;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.content_3 {
+    font-size: 30px;
+    font-family: "RubikMonoOne";
+    color: black;
+    display: inline-block;
+    background-color: #51A8C5;
+    width: 30vw;
+    height: fit-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.content_3:hover {
+    background-color: #287F9C;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.instruction {
+    margin-top: 200px;
+    margin-left: 80px;
+    margin-right: 33%;
+    padding: 30px;
+    font-size: 30px;
+    font-family: "CormorantRegular";
+    color: #303030;
+    border: 5px solid black;
+    background-color: bisque;
+}
+
+.funnyfont {
+    font-family: "RubikMonoOne";
+    color: #161616;
+}
+
+.bold {
+    font-family: "CormorantBold";
+}
+
+.instr_link {
+    color: black;
+}
+
+.instr_link:hover {
+    color: #1C577C;
+}
+
+.img_wrap {
+    text-align: center;
+}
+
+.conv {
+    margin-top: 150px;
+    font-family: "CormorantBold";
+    font-size: 25px;
+    text-align: center;
+}
+
+.centred_block {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+.loading {
+    position: fixed;
+    text-align: left;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    border: 10px solid white;
+    border-left: 0;
+    background-color: rgb(76, 84, 183);
+    padding-top: 70vh;
+    padding-left:10vw;
+    color: #ed4242;
+
+    -webkit-text-stroke: 1.5px black;
+
+    font-size: 60px;
+    margin-top: -30vw;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}
+
+.load_text{
+    font-family: "RubikMonoOne";
+    display: flex;
+}
+
+.load_dots {
+    color: white;
+    display: inline-block;
+    padding: 30px;
+    margin: 30px;
+    margin-top: 0;
+    margin-left: 100px;
+    border: 5px solid black;
+    border-color: black transparent black transparent;
+    border-radius: 50%;
+    /*
+    animation-name: dots;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;*/
+
+    animation: dots 2.3s ease-in-out infinite, dots-color 7s ease infinite alternate;
+}
+
+@keyframes dots{
+    0% {
+        margin-left: 100px;
+    }
+    50% {
+        margin-left: 200px;
+        transform: rotate(180deg);
+    }
+    100% {
+        margin-left: 100px;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dots-color{
+    0% {
+        border: 5px solid black;
+        border-color: #80d497 transparent #80d497 transparent;
+        background-color: black;
+    }
+    50% {
+        border: 5px solid black;
+        border-color: transparent black transparent black;
+        background-color: #ed4242;
+    }
+    100% {
+        border: 5px solid black;
+        border-color: #fdc62d transparent #fdc62d transparent;
+        background-color: black;
+    }
+}
+
+.auth_wrap {
+    text-align: left;
+    margin: 20px;
+    margin-top: 40px;
+    font-size: 30px;
+    font-family: "CormorantBold";
+    border: 10px solid black;
+    background-color: bisque;
+    color: #303030;
+    padding: 20px;
+    padding-left: 2em;
+    padding-bottom: 5px;
+}
+
+.auth_link {
+    color: #303030;
+    font-size: 40px;
+}
+
+.auth_token_wrap {
+    display: flex;
+    text-align: center;
+    background-color: #1C577C;
+    border: 10px solid black;
+    margin: 20px;
+    margin-top: 50px;
+    padding: 10px;
+    height: max-content;
+}
+
+.auth_token_inp {
+    display: inline-block;
+    border-style: none;
+    border: 10px solid #FB7F62;
+    background-color: bisque;
+    width: calc(60% - 10px - 10px);
+    font-family: "RubikMonoOne";
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.auth_token_inp:focus {
+    outline: none;
+    border: 10px solid black;
+    color: black;
+}
+
+.auth_token_inp::placeholder {
+    padding-left: 30px;
+}
+
+.auth_token_submit {
+    white-space: normal;
+    word-wrap:break-word;
+    width: calc(40% - 10px);
+    height: max-content;
+    border: 10px solid #fdc62d;
+    background-color: #438cf8;
+    font-family: "RubikMonoOne";
+    font-size: 30px;
+    padding: 5px;
+}
+
+.auth_token_submit:hover {
+    background-color: #FB9982;
+    border: 10px solid black;
+}
+
+.g_reciever {
+    margin-top: 300px;
+    position: fixed;
+    right: 0px;
+    text-align: left;
+    font-family: "RubikMonoOne";
+    font-size: 20px;
+    background-color: bisque;
+    border: 5px solid black;
+    border-right: 0;
+    width: 10em;
+    padding: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.g_reciever_inp {
+    border: 5px solid #00000000;
+    height: 80%;
+    width: 85%;
+    font-size: 20px;
+    font-family: "RubikMonoOne";
+    outline: none;
+    padding: 10px;
+    background-color: #8EE134;
+}
+
+.g_reciever_inp:focus {
+    border: 5px solid black;
+}
+
+.new_graffiti_button {
+    text-align: right;
+    font-size: 20px;
+    background-color: #FB7F62;
+    border: 5px solid black;
+    border-right: 0;
+    position: fixed;
+    right: 0px;
+    margin-top: 150px;
+    padding: 10px;
+    width: min-content;
+}   
+
+.graffiti_wrap{
+    border: 5px solid black;
+    display: inline-block;
+    padding: 5px;
+    margin:5px;
+    height: fit-content;
+    max-width: 70vw;
+}
+
+.graffiti_wrap:hover {
+    border: 5px solid #FB7F62;
+}
+
+.graffiti_pic {
+    width: 100%;
+    max-height: 400px;
+}
+
+.graffities_wrap {
+    width: 70vw;
+    padding-top: 10vh;
+    display: inline-block;
+}
+
+.graffiti_add_help {
+    background-color: bisque;
+    font-size: 30px;
+    font-family: "CormorantBold";
+    border: 5px solid black;
+    margin-left: 10px;
+    padding: 10vh;
+    width: calc(80% - 40vh);
+    margin-bottom:200px;
+}
+
+.response {
+    color:#80d497;
+    background-color: #303030;
+    padding: 20px;
+    position: fixed;
+    right:0px;
+    margin-top: 460px;
+    border: 5px solid #fdc62d;
+    font-size: 30px;
+}
+
+.pic_form_wrap {
+    width: calc(70vw - 40px);
+    margin-left: 4vw;
+    
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.pic_link_wrap {
+    text-align: center;
+    background-color: bisque;
+    border: 5px solid black;
+    width: calc(100% - 45px*2);
+    padding: 40px;
+    margin-top: 30px;
+    font-family: "RubikMonoOne";
+}
+
+.pic_link_inp {
+    display: inline-block;
+    border-style: none;
+    border: 10px solid #303030;
+    background-color: white;
+    height: 80%;
+    width: 90%;
+    font-family: "RubikMonoOne";
+    font-size: 30px;
+    margin-right: 5%;
+}
+
+.pic_link_inp:focus {
+    outline: none;
+    border: 10px solid black;
+    color: black;
+}
+
+.pic_link_inp::placeholder {
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.pic_submit {
+    width: 25vw;
+    
+    right: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    height: 15em;
+    border: 10px solid #303030;
+    background-color: #efa69d;
+    font-family: "RubikMonoOne";
+    font-size: 30px;
+    padding: 5px;
+    position: fixed;
+}
+
+.pic_submit:hover {
+    border: 10px solid black;
+    background-color: #FB9982;
+}
+
+.pic_upload_wrap {
+    text-align: center;
+    background-color: bisque;
+    border: 5px solid black;
+    width: calc(100% - 45px*2);
+    padding: 40px;
+    margin-top: 30px;
+    font-family: "RubikMonoOne";
+}
+
+.pic_upload_inp {
+    display: inline-block;
+    border-style: none;
+    border: 10px solid #303030;
+    background-color: white;
+    height: 80%;
+    width: 90%;
+    font-family: "RubikMonoOne";
+    font-size: 20px;
+    margin-right: 5%;
+    padding: 10px;
+}
+
+.pic_upload_inp::-webkit-file-upload-button {
+    display: inline-block;
+    border: 0;
+    background-color: #438cf8;
+    border: 3px solid black;
+    font-family: "RubikMonoOne";
+    padding: 5px;
+}
+
+.resp {
+    text-align: center;
+    color:#80d497;
+    background-color: #303030;
+    padding: 20px;
+    margin: 0;
+    margin-top: 30px;
+    border: 5px solid #fdc62d;
+    font-size: 30px;
+    font-family: "RubikMonoOne";
+    min-width: min-content;
+    width: calc(100% - 25px * 2);
+}
+
+.pic_preview {
+    border: 5px solid black;
+    width: 40%;
+    text-align: center;
+    display: inline-block;
+}
+
+.pic_preview_wrap {
+    display: flex;
+    margin-top: 30px;
+    width: calc(100vw - 10vw);
+    padding-left: 10vw;
+}
+
+.pic_buttons_wrap {
+    width: 50%;
+    display: inline-block;
+    padding-top: 0;
+    border: 5px solid #287F9C;
+    height: max(fit-content, 100%);
+}
+
+.pic_del_button {
+    width: 100%;
+    top:0;
+    height: 30%;
+}
+
+#del_pic {
+    width: 100%;
+    height: 100%;
+    border: 5px solid black;
+    padding: 5px;
+    font-family: "RubikMonoOne";
+    font-size: 30px;
+    background-color: #FB7F62;
+
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#del_pic:hover {
+    background-color: #ed4242;
+}
+
+.pic_add_button {
+    width: 100%;
+    top: 0px;
+    height: 70%;
+}
+
+#graffiti_add {
+    width: 100%;
+    height: 100%;
+    border: 5px solid black;
+    border-top: 0;
+    padding: 5px;
+    font-family: "RubikMonoOne";
+    font-size: 30px;
+    background-color: #80d497;
+    
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#graffiti_add:hover {
+    background-color: #26fff1e5;
+}

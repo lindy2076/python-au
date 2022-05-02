@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vk anim gif</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+    {% block head_js %}
+    
+    {% endblock head_js %}
+</head>
+
+<body>
+    <div class="header">
+        <a href="/"><div class="title">| это веб приложение |</div></a>
+        <div class="about">твои граффити тут.</div>
+    </div>
+    
+    <div class="head_inv" style="margin-top: 100px;"></div>
+    
+    {% block content %}
+    --something went wrong...--
+    {% endblock %}
+
+    <div style="margin-top: 100px;"></div>
+    <div class="footer">
+        <!--<hr>-->
+        <div class="author">Lindy2076 2022 / </div>
+        <div class="link"><a class="git" href="https://github.com/lindy2076/python-au" target="_blank">git</a></div>
+    </div>
+</body>

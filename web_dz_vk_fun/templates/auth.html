@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="conv">Пожалуйста, прочитайте <a href="instruction" target="_blank">инструкцию</a></div>
+
+<div class="auth_wrap transition">
+    <a href="https://oauth.vk.com/authorize?client_id=6121396&scope=135168&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1"
+    target="_blank" class="instr_link funnyfont auth_link transition" >
+        получить токен
+    </a>
+    {% if token_not_ok %}
+        <p>попробуйте ещё раз. токен содержит только цифры и латинские буквы:</p>
+    {% else %}
+        <p>вставьте токен в поле ниже:</p>
+    {% endif %}
+</div>
+<div class="auth_token_wrap transition">
+    <form action="/auth" id="sendtoken" method="POST"></form>
+        <input 
+            type="text" 
+            form="sendtoken" 
+            name="token_confirm" 
+            placeholder="вот сюда"
+            class="auth_token_inp transition"
+        />
+        <input 
+            type="submit" 
+            form="sendtoken" 
+            value="token confirm" 
+            class="auth_token_submit transition"
+        />
+</div>
+{% endblock %}
