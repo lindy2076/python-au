@@ -1,4 +1,4 @@
-#2022 github.com/https://github.com/lindy2076/python-au/tree/main/web_vk_fun
+#2022 https://github.com/lindy2076/python-au/tree/main/web_dz_vk_fun
 
 import flask
 from flask import Flask, jsonify, request, redirect, session, url_for, send_file
