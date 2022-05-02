@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: vk-api
+Version: 11.9.8
+Summary: Python модуль для создания скриптов для социальной сети Вконтакте (vk.com API wrapper)
+Home-page: https://github.com/python273/vk_api
+Download-URL: https://github.com/python273/vk_api/archive/v11.9.8.zip
+Author: python273
+Author-email: vk_api@python273.pw
+License: Apache License, Version 2.0, see LICENSE file
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Provides-Extra: vkaudio
+Requires-Dist: beautifulsoup4 ; extra == 'vkaudio'
+Provides-Extra: vkstreaming
+Requires-Dist: websocket-client ; extra == 'vkstreaming'
+
+# vk_api [![PyPI](https://img.shields.io/pypi/v/vk_api.svg)](https://pypi.org/project/vk_api/) ![Python 3.x](https://img.shields.io/pypi/pyversions/vk_api.svg)
+**vk_api** – Python модуль для создания скриптов для ВКонтакте (vk.com API wrapper)
+
+* [Документация](https://vk-api.readthedocs.io/en/latest/)
+* [Примеры](./examples)
+* [Чат в Telegram](https://t.me/python273_vk_api)
+* [Документация по методам API](https://vk.com/dev/methods)
+* [Альтернативы vk_api](https://github.com/python273/vk_api/issues/356) (асинхронность; боты)
+
+```
+python3 -m pip install vk_api
+```
+
+```python
+import vk_api
+
+vk_session = vk_api.VkApi('+71234567890', 'mypassword')
+vk_session.auth()
+
+vk = vk_session.get_api()
+
+print(vk.wall.post(message='Hello world!'))
+```
+
+

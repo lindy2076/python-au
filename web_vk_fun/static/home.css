@@ -67,7 +67,7 @@ a:visited {
 }
 
 .footer {
-    margin-top: 100px;
+    margin-top: 150px;
     padding-bottom: 10px;
     padding-top: 10px;
     width: 100%;
@@ -103,7 +103,6 @@ a:visited {
 .central_content{
     margin-top: 200px;
     text-align: center;
-    padding: 0;
     font-size: 0;
 }
 
@@ -195,9 +194,8 @@ a:visited {
 }
 
 .form_wrap {
-    margin-top: 20px;
-    padding:0;
-    font-size:0;
+    padding-top: 20px;
+    font-size:16px;
     font-family: "RubikMonoOne";
 }
 
@@ -208,8 +206,10 @@ a:visited {
     background-color: #287F9C;
     color:white;
     width: 20%;
-    line-height: 100px;
     margin: 0;
+    padding: 20px;
+    
+    border: 5px solid black;
 }
 
 .id_wrap {
@@ -218,46 +218,77 @@ a:visited {
     font-size: 16px;
     background-color: #A8ED5D;
     color:black;
-    width: 20%;
-    line-height: 100px;
-    margin: 0;
+    width: 15em;
+    margin: 10px;
+    padding: 5px;
+    height: 130px;
+    border: 5px solid black;
 }
 
 .link_wrap {
     text-align: center;
-    display: inline-block;
     font-size: 16px;
     background-color: #287F9C;
     color:white;
-    width: 20%;
-    line-height: 100px;
-    margin: 0;
+    width: 20em;
+    height: 10em;
+    padding: 10px;
+    border: 5px solid black;
+    margin-top: 0;
+    padding-bottom: 0;
 }
 
 .randint_wrap {
     text-align: center;
-    display: inline-block;
     font-size: 16px;
     background-color: #A8ED5D;
-    color:287F9C;
-    width: 20%;
-    line-height: 100px;
-    margin: 0;
+    color: black;
+    width: 10em;
+    border: 5px solid black;
+    height: 120px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    margin-left: 60px;
 }
 
-.form_body {
-    padding: 0;
+.pic_preview {
     text-align: center;
+    display: inline-block;
+    width: 30%;
+    font-size: 16px;
+    background-color: #FB7F62;
+    border: 7px solid black;
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 30px;
+    height: 30em;
+    padding: 20px;
+}
+
+
+.form_body {
+    text-align: center;
+    height: 100%;
+    margin-bottom: 50px;
+    padding-bottom: 100px;
+}
+
+.form_body_wrap {
+    height: 100%;
 }
 
 .token_inp {
     font-family: "RubikMonoOne";
-    width: 70%;
+    width: 79%;
     border: 3px solid black;
-    background-color:#FB7F62;
+    background-color:#51A8C5;
     color:black;
     border-radius: 1px;
     height:30px;
+    margin-bottom: 30px;
+    
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .token_inp::placeholder {
@@ -270,6 +301,7 @@ a:visited {
 .token_inp:focus{
     color: white;
     border: 5px solid black;
+    background-color: #287F9C;
     border-radius: 0;
     outline: none;
     
@@ -277,7 +309,12 @@ a:visited {
     transition: all 0.5s ease;
 }
 
+.token_inp:hover {
+    background-color: #287F9C;
+}
+
 .id_inp {
+    text-align: center;
     font-family: "RubikMonoOne";
     width: 70%;
     border: 3px solid #303030;
@@ -285,6 +322,9 @@ a:visited {
     color:#303030;
     border-radius: 1px;
     height:30px;
+    
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .id_inp::placeholder {
@@ -306,12 +346,16 @@ a:visited {
 
 .link_inp {
     font-family: "RubikMonoOne";
-    width: 70%;
+    width: 60%;
     border: 3px solid black;
     background-color:#FB7F62;
     color:black;
     border-radius: 1px;
     height:30px;
+    margin-top: -20px;
+
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .link_inp::placeholder {
@@ -332,6 +376,7 @@ a:visited {
 }
 
 .randint_inp {
+    text-align: center;
     font-family: "RubikMonoOne";
     width: 70%;
     border: 3px solid #303030;
@@ -339,6 +384,9 @@ a:visited {
     color:#303030;
     border-radius: 1px;
     height:30px;
+    
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .randint_inp::placeholder {
@@ -359,9 +407,10 @@ a:visited {
 }
 
 .submit_wrap {
-    margin-top: 20px;
+    margin-top: 50px;
     width:100%;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .submit_inp {
@@ -386,9 +435,67 @@ a:visited {
 .resp {
     font-size: 20px;
     text-align: center;
-    padding-top: 50px;
+    margin-top: 50px;
 }
 
 .img_wrap {
     text-align: center;
+}
+
+.centred_block {
+    text-align: center;
+    padding-top: 150px;
+    font-size: 30px;
+}
+
+.upload_button {
+    color : black;
+    font-family: "RubikMonoOne";
+    border: 3px solid black;
+    background-color:#A8ED5D;
+    border-radius: 1px;
+    width: 10em;
+    padding: 10px;
+    margin: 5px;
+    margin-top: 30px;
+
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.upload_button:hover {
+    border: 5px solid black;
+    background-color: #4B850D;
+    color: white;
+}
+
+.link_wrap_new {
+    color: black;
+    font-size: 16px;
+    height: 200px;
+    display: inline-block;
+    background-color: #51A8C5;
+    border: 5px solid black;
+    width: 20em;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.auth_centred_block {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 30px;
+    font-family: "CormorantBold";
+}
+
+.middle_buttons_wrap {
+    padding: 50px;
+    display: inline-block;
+    margin-top: -30%;
+    height: 100%;
+}
+
+.img_prev {
+    max-width: 80%;
+    max-height: 90%;
 }

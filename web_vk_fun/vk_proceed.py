@@ -11,19 +11,8 @@ def send_message(session, peer_id, doc_id, doc_owner, randint_):
     return res
 
 
-def main(token, image_path, peer_id, randint_):
-    image = requests.get(image_path, stream=True) # берем пихаем картинку в temp
-    if image.status_code != 200:
-        return 'invalid pic'
-
-    temp_file = "temp/" + 'amogus.png'
-    with open(temp_file, 'wb') as handle:  #FIXME вообще надо бы на размер и формат проверять файлики ну ладно
-        for block in image.iter_content(1024):
-            if not block:
-                break
-            handle.write(block)
-    
-    session = vk_api.VkApi(token=token)
+def graffiti_upload(session):
+    temp_file = "static/amogus.png"
     session2 = vk_api.upload.VkUpload(session)
     values = {
         'group_id': None,
@@ -46,12 +35,19 @@ def main(token, image_path, peer_id, randint_):
     doc_info = res['graffiti']
 
     print(doc_info['id'], doc_info['owner_id'], doc_info['url'])
+    return doc_info['id'], doc_info['owner_id']
+
+
+def upload_and_send(token, peer_id, randint_):
+    session = vk_api.VkApi(token=token)
+    doc_id, doc_owner = graffiti_upload(session)
+
     try:
-        s = send_message(session, peer_id, doc_info['id'], doc_info['owner_id'], randint_)
+        s = send_message(session, peer_id, doc_id, doc_owner, randint_)
     except Exception as wtf:
         return 'invalid id or no permission to send messages ' + str(wtf.__class__)
     print('message_id:', s)
     return s
 
 if __name__ == '__main__':
-    main(0,'https://psv4.userapi.com/c534536/u362519748/docs/d48/7ae32a43aec1/ezgif_com-gif-maker.png',0, 0)
+    print(upload_and_send(0, 2000000125, 10) )
