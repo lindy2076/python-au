@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block head_js %}
+<script defer>
+    console.log('hello world');
+    console.log('{{photo_uploaded}}')
+    document.addEventListener('DOMContentLoaded', () => {
+        {% if photo_uploaded %}
+            document.querySelector('#load').style.display = 'none';
+            document.querySelector('#graffiti_add').onclick = () => {
+                const request = new XMLHttpRequest();
+                request.open('POST', '/upload');
+                
+                request.onload = () =>{
+                    const data = JSON.parse(request.responseText);
+                    console.log('resp:' + data.response_)
+                    if (data.response_ == 1) {
+                        document.querySelector('.resp').innerHTML = 'response: graffiti uploaded.';
+                        window.location.href = "/my_graffities"
+                    }
+                    else {
+                        document.querySelector('.resp').innerHTML = 'response: error.';
+                    }
+                }
+                request.send();
+                return false;                
+            };
+            document.querySelector('#del_pic').onclick = pic_delete;
+        {% else %}
+            document.querySelector('#pic_link').onsubmit = () => {
+                document.querySelector('#load').style.display = 'block';
+                document.querySelector('.pic_submit').style.display = 'none';
+            };
+        {% endif %}
+        });
+
+    function pic_delete() {
+        window.location.href = "/convert"
+    };
+    
+</script>
+{% endblock head_js%}
+
+
+{% block content %}
+ 
+    <div id="load" class="loading funnyfont" style="display: none"> 
+        <div class="load_text">загрузка<div class="load_dots"></div></div>
+        <!--<img src="{{url_for('static', filename='loading.gif')}}" height="30%">-->
+    </div>
+
+    <div class="conv">Пожалуйста, прочитайте <a href="instruction" target="_blank">инструкцию</a></div>
+    {% if photo_uploaded %}
+        <div class="pic_preview_wrap">
+
+            <div class="pic_preview funnyfont">
+                <p>IMAGE preview</p>
+                <img src="{{get_uploaded()}}" class="img_prev" width="100%">
+            </div>
+
+            <div class="pic_buttons_wrap">
+                
+                <div class="pic_del_button">
+                    <button id="del_pic"> Удалить </button>
+                </div>
+
+                <div class="pic_add_button">
+                    <button id="graffiti_add"> Добавить граффити к себе</button>
+                </div>
+
+            </div>
+
+        </div>
+    {% else %}
+        <div class="pic_form_wrap">
+            <input type="submit" value="загрузить" form="pic_link" class="pic_submit transition">
+            <form id="pic_link" method="POST" enctype="multipart/form-data"></form>
+            <div class="pic_link_wrap transition">
+                <p>pic link</p>
+                <input 
+                    type="text" 
+                    name="png_link" 
+                    placeholder="https://server.dom/.../file.png" 
+                    form="pic_link"
+                    class="pic_link_inp transition"
+                />
+            </div>
+            <div class="pic_upload_wrap transition">
+                <p>file upload</p>
+                <input 
+                    type="file" 
+                    name="usr_file"
+                    value="обзор" 
+                    form="pic_link"
+                    class="pic_upload_inp transition"
+                />
+            </div>
+        </div>
+    {% endif %}
+
+    {% if response %}
+        <div class="resp transition">{{response}}</div>
+    {% endif %}
+
+{% endblock %}
